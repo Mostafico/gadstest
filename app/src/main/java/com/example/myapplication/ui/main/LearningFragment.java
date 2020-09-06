@@ -12,17 +12,14 @@ import androidx.fragment.app.Fragment;
 
 import com.example.myapplication.R;
 
-public class MainFragment extends Fragment {
-    private int index;
-    MainFragment(int index){
-        this.index = index;
-    }
+public class LearningFragment extends Fragment {
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_main, container, false);
         TextView tvMain = root.findViewById(R.id.tv_main);
-        tvMain.setText("Fragment : " + index);
+        tvMain.setText("Fragment : 0");
         return root;
     }
 }
