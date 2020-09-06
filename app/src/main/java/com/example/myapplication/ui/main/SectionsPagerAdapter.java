@@ -32,10 +32,10 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
         switch (position){
             case 0:
-                fragment = new Frag1();
+                fragment = new MainFragment();
                 break;
             case 1:
-                fragment = new Frag1();
+                fragment = new MainFragment();
                 break;
         }
         return fragment;
