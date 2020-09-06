@@ -31,7 +31,7 @@ public class SkillIQRecyclerAdapter extends RecyclerView.Adapter<SkillIQRecycler
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Student student = mStudents.get(position);
         holder.tvName.setText(student.getName());
-        holder.tvDetails.setText(student.getScore() + " learning hours, " + student.getCountry() + ".");
+        holder.tvDetails.setText(student.getScore() + " skill IQ Score, " + student.getCountry() + ".");
     }
 
 
