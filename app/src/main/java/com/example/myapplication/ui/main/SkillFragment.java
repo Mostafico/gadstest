@@ -14,8 +14,10 @@ import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.myapplication.DataManager;
 import com.example.myapplication.R;
 import com.example.myapplication.SkillIQRecyclerAdapter;
+import com.example.myapplication.Student;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -33,6 +35,8 @@ public class SkillFragment extends Fragment {
     private int index;
     String jsonResponse;
     public static final String HTTPS_GADSAPI_HEROKUAPP_COM_API_SKILLIQ = "https://gadsapi.herokuapp.com/api/skilliq";
+    private SkillIQRecyclerAdapter mRecyclerAdapter;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -40,12 +44,12 @@ public class SkillFragment extends Fragment {
         RecyclerView recyclerView = root.findViewById(R.id.recycler_view);
         new SkillFragment.JsonDownload().execute(HTTPS_GADSAPI_HEROKUAPP_COM_API_SKILLIQ);
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
-        SkillIQRecyclerAdapter recyclerAdapter = new SkillIQRecyclerAdapter(getContext());
+        mRecyclerAdapter = new SkillIQRecyclerAdapter(getContext());
         DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(recyclerView.getContext(),
                 layoutManager.getOrientation());
         recyclerView.addItemDecoration(dividerItemDecoration);
         recyclerView.setLayoutManager(layoutManager);
-        recyclerView.setAdapter(recyclerAdapter);
+        recyclerView.setAdapter(mRecyclerAdapter);
         return root;
     }
     private class JsonDownload extends AsyncTask<String, String, String> {
@@ -108,6 +112,11 @@ public class SkillFragment extends Fragment {
                 String name = oneObject.getString("name");
                 int score = oneObject.getInt("score");
                 String country = oneObject.getString("country");
+                Student student = new Student(name, score, country);
+                DataManager.mStudentsSkillIQ.add(student);
+                if(mRecyclerAdapter != null){
+                    mRecyclerAdapter.notifyDataSetChanged();
+                }
             }
         } catch (JSONException e) {
             e.printStackTrace();

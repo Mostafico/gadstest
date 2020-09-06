@@ -15,7 +15,7 @@ public final class DataManager {
         }
         mStudentsLearning = new ArrayList<>();
         mStudentsSkillIQ = new ArrayList<>();
-        insertDummyData();
+//        insertDummyData();
     }
 
     private static void insertDummyData() {

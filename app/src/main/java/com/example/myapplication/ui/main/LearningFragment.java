@@ -15,8 +15,10 @@ import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.myapplication.DataManager;
 import com.example.myapplication.LearningRecyclerAdapter;
 import com.example.myapplication.R;
+import com.example.myapplication.Student;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -33,6 +35,7 @@ import java.net.URL;
 public class LearningFragment extends Fragment {
     public static final String HTTPS_GADSAPI_HEROKUAPP_COM_API_HOURS = "https://gadsapi.herokuapp.com/api/hours";
     String jsonResponse;
+    private LearningRecyclerAdapter mRecyclerAdapter;
 
     @Nullable
     @Override
@@ -42,13 +45,13 @@ public class LearningFragment extends Fragment {
 
         RecyclerView recyclerView = root.findViewById(R.id.recycler_view);
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
-        LearningRecyclerAdapter recyclerAdapter = new LearningRecyclerAdapter(getContext());
+        mRecyclerAdapter = new LearningRecyclerAdapter(getContext());
         DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(recyclerView.getContext(),
                 layoutManager.getOrientation());
         recyclerView.addItemDecoration(dividerItemDecoration);
 
         recyclerView.setLayoutManager(layoutManager);
-        recyclerView.setAdapter(recyclerAdapter);
+        recyclerView.setAdapter(mRecyclerAdapter);
         return root;
     }
     private class JsonDownload extends AsyncTask<String, String, String> {
@@ -111,6 +114,11 @@ public class LearningFragment extends Fragment {
                     String name = oneObject.getString("name");
                     int score = oneObject.getInt("hours");
                     String country = oneObject.getString("country");
+                    Student student = new Student(name, score, country);
+                    DataManager.mStudentsLearning.add(student);
+                    if(mRecyclerAdapter != null){
+                        mRecyclerAdapter.notifyDataSetChanged();
+                    }
             }
         } catch (JSONException e) {
             e.printStackTrace();
