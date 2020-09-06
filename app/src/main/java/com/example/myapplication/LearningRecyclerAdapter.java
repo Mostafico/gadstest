@@ -18,7 +18,7 @@ public class LearningRecyclerAdapter extends RecyclerView.Adapter<LearningRecycl
     public LearningRecyclerAdapter(Context context){
         mContext = context;
         mLayoutInflater = LayoutInflater.from(context);
-        mStudents = DataManager.getData();
+        mStudents = DataManager.mStudentsLearning;
     }
     @NonNull
     @Override

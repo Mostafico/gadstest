@@ -18,7 +18,7 @@ public class SkillIQRecyclerAdapter extends RecyclerView.Adapter<SkillIQRecycler
     public SkillIQRecyclerAdapter(Context context){
         mContext = context;
         mLayoutInflater = LayoutInflater.from(context);
-        mStudents = DataManager.getData();
+        mStudents = DataManager.mStudentsSkillIQ;
     }
     @NonNull
     @Override

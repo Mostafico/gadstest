@@ -4,22 +4,23 @@ import java.util.ArrayList;
 import java.util.List;
 
 public final class DataManager {
-    private static List<Student> mStudents;
+    public static List<Student> mStudentsLearning;
+    public static List<Student> mStudentsSkillIQ;
     private static DataManager mDataManager = null;
     private void DataManager(){
     }
-    public static List<Student> getData(){
+    public static void getInstance(){
         if(mDataManager == null){
             mDataManager = new DataManager();
         }
-        mStudents = new ArrayList<>();
+        mStudentsLearning = new ArrayList<>();
+        mStudentsSkillIQ = new ArrayList<>();
         insertDummyData();
-        return mStudents;
     }
 
     private static void insertDummyData() {
         for (int i = 0; i < 30 ; i++){
-            mStudents.add(
+            mStudentsLearning.add(
                     new Student("Mostafa Ragab", 300, "Egypt"));
         }
     }
