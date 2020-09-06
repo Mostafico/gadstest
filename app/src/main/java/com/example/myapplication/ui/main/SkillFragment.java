@@ -18,8 +18,7 @@ public class SkillFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_main, container, false);
-        TextView tvMain = root.findViewById(R.id.tv_main);
-        tvMain.setText("Fragment : 1");
+
         return root;
     }
 }
