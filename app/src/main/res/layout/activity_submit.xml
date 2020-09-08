@@ -18,7 +18,7 @@
         android:backgroundTint="@color/colorAccent"
         android:ems="10"
         android:hint=" Project on GITHUB (link)"
-        android:inputType="textEmailAddress"
+        android:inputType="text"
         android:padding="5dp"
         android:textColorHint="?android:attr/textColorHint"
         android:textSize="24sp"
