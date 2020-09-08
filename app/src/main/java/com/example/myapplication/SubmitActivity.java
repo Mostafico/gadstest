@@ -104,7 +104,6 @@ public class SubmitActivity extends AppCompatActivity {
             }
         });
     }
-
     private void showSuccessDialog(View v){
         final AlertDialog.Builder builder = new AlertDialog.Builder(SubmitActivity.this,R.style.CustomAlertDialog);
         ViewGroup viewGroup = findViewById(android.R.id.content);
