@@ -41,8 +41,6 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class LearningFragment extends Fragment {
-    public static final String HTTPS_GADSAPI_HEROKUAPP_COM_API_HOURS = "https://gadsapi.herokuapp.com/api/hours";
-    String jsonResponse;
     private LearningRecyclerAdapter mRecyclerAdapter;
 
     @Nullable
@@ -60,6 +58,12 @@ public class LearningFragment extends Fragment {
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(mRecyclerAdapter);
 
+        getListFromAPI();
+
+        return root;
+    }
+
+    private void getListFromAPI() {
         LearningService taskService = ServiceBuilder.builderService(LearningService.class);
         final Call<List<Student>> call = taskService.getStudents();
         call.enqueue(new Callback<List<Student>>() {
@@ -74,8 +78,5 @@ public class LearningFragment extends Fragment {
                 Toast.makeText(getContext(), "Cannot retrieve data", Toast.LENGTH_SHORT).show();
             }
         });
-
-
-        return root;
     }
 }
