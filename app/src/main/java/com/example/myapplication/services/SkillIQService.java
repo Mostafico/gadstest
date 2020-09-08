@@ -1,6 +1,6 @@
 package com.example.myapplication.services;
 
-import com.example.myapplication.Student;
+import com.example.myapplication.data.Student;
 
 import java.util.List;
 

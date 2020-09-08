@@ -1,8 +1,6 @@
 package com.example.myapplication.ui.main;
 
-import android.os.AsyncTask;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,25 +13,13 @@ import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.myapplication.DataManager;
+import com.example.myapplication.data.DataManager;
 import com.example.myapplication.R;
-import com.example.myapplication.SkillIQRecyclerAdapter;
-import com.example.myapplication.Student;
-import com.example.myapplication.services.LearningService;
+import com.example.myapplication.adapters.SkillIQRecyclerAdapter;
+import com.example.myapplication.data.Student;
 import com.example.myapplication.services.ServiceBuilder;
 import com.example.myapplication.services.SkillIQService;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.URL;
 import java.util.List;
 
 import retrofit2.Call;
