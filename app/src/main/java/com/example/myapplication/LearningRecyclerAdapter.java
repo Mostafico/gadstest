@@ -31,7 +31,7 @@ public class LearningRecyclerAdapter extends RecyclerView.Adapter<LearningRecycl
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Student student = mStudents.get(position);
         holder.tvName.setText(student.getName());
-        holder.tvDetails.setText(student.getScore() + " learning hours, " + student.getCountry() + ".");
+        holder.tvDetails.setText(student.getHours() + " learning hours, " + student.getCountry() + ".");
     }
 
     @Override
