@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -12,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.myapplication.data.DataManager;
 import com.example.myapplication.R;
 import com.example.myapplication.data.Student;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -36,6 +38,7 @@ public class SkillIQRecyclerAdapter extends RecyclerView.Adapter<SkillIQRecycler
         Student student = mStudents.get(position);
         holder.tvName.setText(student.getName());
         holder.tvDetails.setText(student.getScore() + " skill IQ Score, " + student.getCountry() + ".");
+        holder.showImage(student.getBadgeUrl());
     }
 
 
@@ -47,11 +50,16 @@ public class SkillIQRecyclerAdapter extends RecyclerView.Adapter<SkillIQRecycler
     public class ViewHolder extends RecyclerView.ViewHolder {
         public final TextView tvName;
         public final TextView tvDetails;
+        public final ImageView badge;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             tvName = itemView.findViewById(R.id.tv_name);
             tvDetails = itemView.findViewById(R.id.tv_details);
+            badge = itemView.findViewById(R.id.badge_image);
+        }
+        public void showImage(String imageUrl){
+            Picasso.get().load(imageUrl).into(badge);
         }
     }
 }

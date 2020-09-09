@@ -5,6 +5,7 @@ public class Student {
     private int score;
     private int hours;
     private String country;
+    private String badgeUrl;
 
 
     public Student(String name, int hours, String country) {
@@ -17,6 +18,12 @@ public class Student {
         this.name = name;
         this.score = score;
         this.country = country;
+    }
+    public void Student(String name, int score, String country, String badgeUrl) {
+        this.name = name;
+        this.score = score;
+        this.country = country;
+        this.badgeUrl = badgeUrl;
     }
     public String getName() {
         return name;
@@ -47,5 +54,13 @@ public class Student {
 
     public void setHours(int hours) {
         this.hours = hours;
+    }
+
+    public String getBadgeUrl() {
+        return badgeUrl;
+    }
+
+    public void setBadgeUrl(String badgeUrl) {
+        this.badgeUrl = badgeUrl;
     }
 }
