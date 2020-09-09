@@ -33,7 +33,7 @@ public class SubmitActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_submit);
         mTvName = findViewById(R.id.tv_fname);
-        mTvEmail = findViewById(R.id.tv_lastname);
+        mTvEmail = findViewById(R.id.tv_email);
         mTvLink = findViewById(R.id.tv_link);
         mLastName = findViewById(R.id.tv_lastname);
 
